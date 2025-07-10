@@ -23,5 +23,5 @@ jobs:
         context: .
         push: true
         tags: |
-          tuoaccount/tvproxy:latest
-          tuoaccount/tvproxy:${{ github.ref_name }}
+          anenna/tvproxy:latest
+          anenna/tvproxy:${{ github.ref_name }}
