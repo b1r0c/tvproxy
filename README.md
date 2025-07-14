@@ -113,6 +113,17 @@ cd tvproxy
 docker build -t tvproxy .
 
 docker run -d -p 7860:7860 \
+  --name tvproxy tvproxy
+```
+
+se vuoi aggiungere una variabile allora diventa cosi (esempio PROXY):
+
+```bash
+git clone https://github.com/nzo66/tvproxy.git
+cd tvproxy
+docker build -t tvproxy .
+
+docker run -d -p 7860:7860 \
   -e PROXY=socks5://user:pass@proxy.com:1080 \
   -e DADDY_PROXY=socks5://user:pass@daddy-proxy.com:1080 \
   --name tvproxy tvproxy
@@ -193,6 +204,30 @@ http://<server-ip>:7860/proxy/key?url=<URL_CHIAVE>&h_<HEADER>=<VALORE>
 ```
 http://<server-ip>:7860/proxy/vavoo?url=https://vavoo.to/vavoo-iptv/play/277580225585f503fbfc87
 ```
+
+### 🔗 Playlist Builder
+
+Unisci multiple playlist M3U in una singola lista:
+
+```
+http://<server-ip>:7860/builder
+```
+
+**Funzionalità:**
+- ✅ Interfaccia web per combinare playlist
+- ✅ Supporto per MFP e TvProxy
+- ✅ Gestione automatica delle password API
+- ✅ Combinazione streaming in tempo reale
+
+**Esempio di utilizzo:**
+```
+http://<server-ip>:7860/proxy?def1&url1;def2&url2
+```
+
+Dove:
+- `def1` = dominio:password (per MFP) o solo dominio (per TvProxy)
+- `url1` = URL della playlist
+- `;` = separatore tra playlist multiple
 
 ---
 
